@@ -147,8 +147,10 @@ Reporting
 ---------
 
 All test results are reported using the Allure framework. The Allure report will be automatically generated after each test run, providing a detailed report of the test execution, including logs, screenshots, and API request/response details.
-![image](https://github.com/user-attachments/assets/5fa228cb-ad46-4d2f-acd3-1d17bdd66beb)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/f6b965c3-84c7-4d6e-afae-bf544c53eee7)
+
+![image](https://github.com/user-attachments/assets/795817cf-4bd9-4de6-977a-53d8e23dd0bf)
+
 
 
 
