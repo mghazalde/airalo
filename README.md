@@ -87,7 +87,7 @@ Install Dependencies
 
 Run the following command to install all necessary dependencies:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   shCopy codemvn clean install   `
+`mvn clean install`
 
 Running the Tests
 -----------------
@@ -96,13 +96,13 @@ Running the Tests
 
 To execute the UI tests, run the AiraloWEBTestClass located in src/test/java/webtestpackage using the following Maven command:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   shCopy codemvn clean test -Dtest=AiraloWEBTestClass   `
+`mvn clean test -Dtest=AiraloWEBTestClass`
 
 ### Running the API Tests
 
 To execute the API tests, run the AiraloAPITest located in src/test/java/apitestpackage using the following Maven command:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   shCopy codemvn clean test -Dtest=AiraloAPITest   `
+`mvn clean test -Dtest=AiraloAPITest`
 
 Test Data Management
 --------------------
