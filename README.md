@@ -77,13 +77,6 @@ Approach to Implementing Each Test Case
     *   This test retrieves a list of eSIMs associated with a specific order ID and ICCID and validates the number and details of the eSIMs returned in the response.
         
 
-Configure the Project
----------------------
-
-Update the custom.properties file in src/main/resources/properties to set environment-specific variables such as apiBaseURL, tokenEndpoint, clientId, and clientSecret.
-
-![image](https://github.com/user-attachments/assets/a4617746-fb67-4d83-96a9-5fbfe2fd234b)
-
 
 Install Dependencies
 --------------------
@@ -137,6 +130,7 @@ The custom.properties file is located in the src/main/resources/properties direc
     
 *   Additional configuration options for test execution, such as **headlessExecution**, **createAnimatedGif**, and **videoParams\_recordVideo**.
     
+![image](https://github.com/user-attachments/assets/ed2efbd1-ee63-41dd-8bcb-367cbb7b7d99)
 
 Error Handling
 --------------
