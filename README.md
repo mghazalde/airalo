@@ -82,6 +82,9 @@ Configure the Project
 
 Update the custom.properties file in src/main/resources/properties to set environment-specific variables such as apiBaseURL, tokenEndpoint, clientId, and clientSecret.
 
+![image](https://github.com/user-attachments/assets/a4617746-fb67-4d83-96a9-5fbfe2fd234b)
+
+
 Install Dependencies
 --------------------
 
@@ -144,6 +147,10 @@ Reporting
 ---------
 
 All test results are reported using the Allure framework. The Allure report will be automatically generated after each test run, providing a detailed report of the test execution, including logs, screenshots, and API request/response details.
+![image](https://github.com/user-attachments/assets/5fa228cb-ad46-4d2f-acd3-1d17bdd66beb)
+![Uploading image.png…]()
+
+
 
 License
 -------
