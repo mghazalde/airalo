@@ -70,7 +70,7 @@ To execute the UI tests, run the `AiraloWEBTestClass` located in `src/test/java/
 
 ```sh
 mvn clean test -Dtest=AiraloWEBTestClass
-### Running the API Tests
+## Running the API Tests
 
 To execute the API tests, run the `AiraloAPITest` located in `src/test/java/apitestpackage` using the following Maven command:
 
@@ -82,7 +82,7 @@ The test data is managed using JSON files located in the `src/test/resources/tes
 
 ## Configuration
 
-### `custom.properties` File
+## `custom.properties` File
 
 The `custom.properties` file is located in the `src/main/resources/properties` directory. This file contains environment-specific configurations that the test suite requires, such as:
 
