@@ -75,8 +75,14 @@ Approach to Implementing Each Test Case
     *   Implemented in the SimsPage class using the getEsimList() method.
         
     *   This test retrieves a list of eSIMs associated with a specific order ID and ICCID and validates the number and details of the eSIMs returned in the response.
-        
 
+        
+# Prerequisites
+- JDK 22.
+- MAVEN 3.8.4 +.
+- Chrome/Edge/IE/Firefox/Safari browsers.
+- valid clientId.
+- Valid clientSecret.
 
 Install Dependencies
 --------------------
