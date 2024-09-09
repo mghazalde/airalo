@@ -1,4 +1,4 @@
-name: UI test
+name: Web Tests
 
 on:
   pull_request:
@@ -6,9 +6,6 @@ on:
   schedule:
     - cron: '00 1 * * *'
   workflow_dispatch:
-
-env:
-  GLOBAL_TESTING_SCOPE: "!%regex[.*DatabaseActions.*], !%regex[.*CLI.*], !%regex[.*DB.*], !%regex[.*Db.*], !%regex[.*db.*], !%regex[.*API.*], !%regex[.*Api.*], !%regex[.*uestBuilder.*], !%regex[.*Rest.*], !%regex[.*Json.*], !%regex[.*JSON.*], !%regex[.*json.*], !%regex[.*ndroid.*], !%regex[.*IOS.*], !%regex[.*obile.*], !%regex[.*CucumberTests.*], !%regex[.*LT.*]"
 
 jobs:
   Ubuntu_Chrome_Grid:
@@ -30,7 +27,7 @@ jobs:
           maven-version: 3.8.4
       - name: Check running containers
         run: docker ps
-      - name: Run UI Tests
+      - name: Run Web UI Tests
         run: mvn clean test -Dtest=AiraloWEBTestClass "-DdefaultElementIdentificationTimeout=5" "-DsetParallelMode=DYNAMIC" "-DsetParallel=METHODS" "-DretryMaximumNumberOfAttempts=1" "-DexecutionAddress=localhost:4444" "-DtargetOperatingSystem=LINUX" "-DtargetBrowserName=chrome" "-DheadlessExecution=true" "-DgenerateAllureReportArchive=true"
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
