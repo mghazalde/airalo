@@ -2,7 +2,7 @@ name: Web UI Tests (Local Execution)
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
     - cron: '00 1 * * *'
   workflow_dispatch:
@@ -27,16 +27,21 @@ jobs:
           maven-version: 3.8.4
 
       - name: Install Dependencies
-        run: sudo apt-get update && sudo apt-get install -y xvfb libgconf-2-4
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgconf-2-4 google-chrome-stable
 
       - name: Start Xvfb
         run: |
           export DISPLAY=:99
           Xvfb :99 -screen 0 1280x1024x16 &
 
+      - name: Set up ChromeDriver
+        run: |
+          sudo apt-get install -y chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
+
       - name: Run Web UI Tests Locally
         run: |
-               mvn clean test "-DdefaultElementIdentificationTimeout=5" "-DgenerateAllureReportArchive=true" -DtargetOperatingSystem=LINUX -DtargetBrowserName=chrome -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
+          mvn clean test "-DdefaultElementIdentificationTimeout=5" "-DgenerateAllureReportArchive=true" -DtargetOperatingSystem=LINUX -DtargetBrowserName=chrome -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
@@ -46,7 +51,7 @@ jobs:
           path: "allure-report/*.html"
 
       - name: Test Summary
+        if: always()
         uses: test-summary/action@v2
         with:
           paths: "target/surefire-reports/junitreports/TEST-*.xml"
-        if: always()
