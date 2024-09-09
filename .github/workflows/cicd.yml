@@ -28,8 +28,8 @@ jobs:
 
       - name: Run Web UI Tests on Local Remote Execution
         run: |
-          mvn clean test -Dtest=AiraloWEBTestClass \
-            "-DdefaultElementIdentificationTimeout=30" \
+          mvn clean test -Dtest=webtestpackage.AiraloWEBTestClass \
+            "-DdefaultElementIdentificationTimeout=5" \
             "-DsetParallelMode=DYNAMIC" \
             "-DsetParallel=METHODS" \
             "-DretryMaximumNumberOfAttempts=1" \
