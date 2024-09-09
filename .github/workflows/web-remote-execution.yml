@@ -52,7 +52,8 @@ jobs:
 
       - name: Start Selenium Grid using Docker Compose
         run: |
-          docker-compose -f src/main/resources/properties/docker-compose/selenium4.yml up -d
+           docker compose -f src/main/resources/docker-compose/selenium4.yml up --scale chrome=1 --scale edge=0 --scale firefox=0 -d
+      - name: Set up JDK 21
         continue-on-error: true
 
       - name: Check Docker Containers
