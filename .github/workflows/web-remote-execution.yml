@@ -2,7 +2,7 @@ name: Web UI Tests (Docker and Remote Execution)
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
     - cron: '00 1 * * *'
   workflow_dispatch:
@@ -52,7 +52,7 @@ jobs:
 
       - name: Start Selenium Grid using Docker Compose
         run: |
-           docker-compose -f src/main/resources/properties/docker-compose/selenium4.yml up --scale chrome=1 --scale edge=0 --scale firefox=0 -d
+          docker-compose -f src/main/resources/properties/docker-compose/selenium4.yml up --scale chrome=1 --scale edge=0 --scale firefox=0 -d
 
       - name: Check Docker Containers
         run: docker ps
@@ -62,15 +62,15 @@ jobs:
           baseURL: "https://www.airalo.com"  # Setting the base URL for the test
         run: |
           mvn clean test \
-            "-DdefaultElementIdentificationTimeout=5" \
-            "-DsetParallelMode=DYNAMIC" \
-            "-DsetParallel=METHODS" \
-            "-DretryMaximumNumberOfAttempts=1" \
-            "-DexecutionAddress=localhost:4444" \
-            "-DtargetOperatingSystem=LINUX" \
-            "-DtargetBrowserName=chrome" \
-            "-DheadlessExecution=true" \
-            "-DgenerateAllureReportArchive=true" \
+            -DdefaultElementIdentificationTimeout=5 \
+            -DsetParallelMode=DYNAMIC \
+            -DsetParallel=METHODS \
+            -DretryMaximumNumberOfAttempts=1 \
+            -DexecutionAddress=localhost:4444 \
+            -DtargetOperatingSystem=LINUX \
+            -DtargetBrowserName=chrome \
+            -DheadlessExecution=true \
+            -DgenerateAllureReportArchive=true \
             -Dtest=webtestpackage.AiraloWEBTestClass
 
       - name: Upload Allure Report as Pipeline Artifact
@@ -81,7 +81,7 @@ jobs:
           path: "allure-report/*.html"
 
       - name: Test Summary
+        if: always()
         uses: test-summary/action@v2
         with:
           paths: "target/surefire-reports/junitreports/TEST-*.xml"
-        if: always()
