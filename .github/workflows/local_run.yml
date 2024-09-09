@@ -39,8 +39,10 @@ jobs:
           mvn clean test \
             "-DdefaultElementIdentificationTimeout=5" \
             "-DsetParallelMode=DYNAMIC" \
-            "-DsetParallel=METHODS" \
             "-DgenerateAllureReportArchive=true" \
+            -DtargetBrowserName=chrome \
+            -DheadlessExecution=true \
+            -DgenerateAllureReportArchive=true \
             -Dtest=webtestpackage.AiraloWEBTestClass \
             -DexcludeTests=apitestpackage.AiraloAPITest
 
