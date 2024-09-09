@@ -52,7 +52,7 @@ jobs:
 
       - name: Start Selenium Grid using Docker Compose
         run: |
-          docker-compose -f src/main/resources/properties/docker-compose up -d
+          docker-compose -f src/main/resources/properties/docker-compose/selenium4.yml up -d
         continue-on-error: true
 
       - name: Check Docker Containers
