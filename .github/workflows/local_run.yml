@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Web UI Tests Locally
         run: |
-             mvn clean test -DgenerateAllureReportArchive=true -DtargetBrowserName=chrome -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
+             mvn clean test -DgenerateAllureReportArchive=true -DtargetBrowserName=edge -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
 
 
       - name: Upload Allure Report as Pipeline Artifact
