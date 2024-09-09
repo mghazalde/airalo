@@ -59,7 +59,7 @@ jobs:
 
       - name: Run Web UI Tests Using Remote Execution
         env:
-          baseURL: "https://www.airalo.com"  # Setting the base URL for the test
+          baseURL: "https://www.airalo.com/"  # Setting the base URL for the test
         run: |
           mvn clean test \
             -DdefaultElementIdentificationTimeout=5 \
