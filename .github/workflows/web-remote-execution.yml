@@ -44,6 +44,12 @@ jobs:
           sudo systemctl start docker
           sudo systemctl enable docker
 
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.10.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version
+
       - name: Start Selenium Grid using Docker Compose
         run: |
           docker-compose -f src/main/resources/docker-compose/selenium4.yml up -d
