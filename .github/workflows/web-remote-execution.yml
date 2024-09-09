@@ -9,7 +9,7 @@ on:
 
 jobs:
   Run_Web_UI_Tests_Docker_Remote:
-    needs: [ Ubuntu_APIs ]
+    needs: [Ubuntu_APIs]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -27,11 +27,9 @@ jobs:
         with:
           maven-version: 3.8.4
 
-  
-      - name: Checkout Code
-        uses: actions/checkout@v4
-      - name: Set up Native Selenium Grid
-    
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Start Selenium Grid using Docker Compose
         run: |
           docker-compose -f src/main/resources/properties/docker-compose/selenium4.yml up --scale chrome=1 --scale edge=0 --scale firefox=0 -d
@@ -40,7 +38,7 @@ jobs:
         env:
           baseURL: "https://www.airalo.com/"
         run: |
-                 mvn clean test -DdefaultElementIdentificationTimeout=5 -DretryMaximumNumberOfAttempts=1 -DexecutionAddress=localhost:4444 -DtargetOperatingSystem=LINUX -DtargetBrowserName=chrome -DheadlessExecution=true -DgenerateAllureReportArchive=true -Dtest=webtestpackage.AiraloWEBTestClass
+          mvn clean test -DdefaultElementIdentificationTimeout=5 -DretryMaximumNumberOfAttempts=1 -DexecutionAddress=localhost:4444 -DtargetOperatingSystem=LINUX -DtargetBrowserName=chrome -DheadlessExecution=true -DgenerateAllureReportArchive=true -Dtest=webtestpackage.AiraloWEBTestClass
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
