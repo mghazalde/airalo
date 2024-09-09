@@ -27,8 +27,7 @@ jobs:
           maven-version: 3.8.4
 
       - name: Run API Tests
-        run: |
-              mvn clean test Dtest=apitestpackage.AiraloAPITest
+        run: mvn clean test -DdefaultElementIdentificationTimeout=5 -DsetParallelMode=DYNAMIC -DsetParallel=METHODS -DretryMaximumNumberOfAttempts=1 -DgenerateAllureReportArchive=true -Dtest=apitestpackage.AiraloAPITest
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
