@@ -28,7 +28,7 @@ public class Home {
 
 	@Step("When I navigate to the Home page.")
 	public Home navigate() {
-		driver.browser().navigateToURL(url);
+		driver.browser().navigateToURL("https://www.airalo.com/");
 		return this;
 	}
 
