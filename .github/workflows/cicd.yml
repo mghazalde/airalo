@@ -1,0 +1,58 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 22
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '22'
+
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: Run UI Tests
+      run: mvn clean test -Dtest=AiraloWEBTestClass
+
+    - name: Run API Tests
+      run: mvn clean test -Dtest=AiraloAPITest
+
+    - name: Generate Allure Report
+      run: |
+        mkdir -p allure-results
+        cp -R target/allure-results/* allure-results/
+        allure generate allure-results --clean -o allure-report
+      continue-on-error: true
+
+    - name: Upload Allure Report as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-report
+        path: allure-report
+
+    - name: Publish Allure Report to Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: allure-report
