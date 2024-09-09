@@ -9,7 +9,6 @@ on:
 
 jobs:
   Run_Web_UI_Tests_Docker_Remote:
-    needs: [Ubuntu_APIs]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
