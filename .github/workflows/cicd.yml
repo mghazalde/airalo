@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Web UI Tests on Local Remote Execution
         run: |
-          mvn clean test -Dtest=webtestpackage.AiraloWEBTestClass \
+          mvn clean test \
             "-DdefaultElementIdentificationTimeout=5" \
             "-DsetParallelMode=DYNAMIC" \
             "-DsetParallel=METHODS" \
@@ -37,7 +37,9 @@ jobs:
             "-DtargetOperatingSystem=LINUX" \
             "-DtargetBrowserName=chrome" \
             "-DheadlessExecution=true" \
-            "-DgenerateAllureReportArchive=true"
+            "-DgenerateAllureReportArchive=true" \
+            -Dtest=webtestpackage.AiraloWEBTestClass \
+            -DexcludeTests=apitestpackage.AiraloAPITest
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
