@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Web UI Tests Locally
         run: |
-              mvn clean test "-DdefaultElementIdentificationTimeout=5" "-DgenerateAllureReportArchive=true" -DtargetBrowserName=chrome -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
+               mvn clean test "-DdefaultElementIdentificationTimeout=5" "-DgenerateAllureReportArchive=true" -DtargetOperatingSystem=LINUX -DtargetBrowserName=chrome -DheadlessExecution=true -Dtest=webtestpackage.AiraloWEBTestClass -DexcludeTests=apitestpackage.AiraloAPITest
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
