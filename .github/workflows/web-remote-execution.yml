@@ -64,7 +64,7 @@ jobs:
             -DdefaultElementIdentificationTimeout=2 \
             -DlazyLoadingTimeout=2 \
             -DsetParallelMode=DYNAMIC \
-            -DretryMaximumNumberOfAttempts=1 \
+            -DretryMaximumNumberOfAttempts=3 \
             -DexecutionAddress=localhost:4444 \
             -DtargetOperatingSystem=LINUX \
             -DtargetBrowserName=chrome \
