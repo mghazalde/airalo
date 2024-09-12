@@ -3,8 +3,7 @@ name: Web UI Tests (Local Execution)
 on:
   pull_request:
     branches: [ main ]
-  schedule:
-   
+    
   workflow_dispatch:
 
 jobs:
