@@ -67,7 +67,7 @@ jobs:
             -DexecutionAddress=localhost:4444 \
             -DtargetOperatingSystem=LINUX \
             -DtargetBrowserName=chrome \
-            -DheadlessExecution=true \
+            -DheadlessExecution=false \
             -DgenerateAllureReportArchive=true \
             -Dtest=webtestpackage.AiraloWEBTestClass
 
