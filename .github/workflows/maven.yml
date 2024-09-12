@@ -3,8 +3,7 @@ name: API Tests
 on:
   pull_request:
     branches: [main]
-  schedule:
-   
+    
   workflow_dispatch:
 
 jobs:
