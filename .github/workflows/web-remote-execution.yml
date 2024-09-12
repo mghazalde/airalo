@@ -65,6 +65,7 @@ jobs:
             -DlazyLoadingTimeout=2 \
             -DsetParallelMode=DYNAMIC \
             -DretryMaximumNumberOfAttempts=3 \
+            -DclickUsingJavascriptWhenWebDriverClickFails=true \
             -DexecutionAddress=localhost:4444 \
             -DtargetOperatingSystem=LINUX \
             -DtargetBrowserName=chrome \
