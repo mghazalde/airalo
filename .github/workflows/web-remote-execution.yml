@@ -3,7 +3,6 @@ name: Web UI Tests (Docker and Remote Execution)
 on:
   pull_request:
     branches: [main]
-  schedule:
    
   workflow_dispatch:
 
