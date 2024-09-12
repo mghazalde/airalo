@@ -61,8 +61,8 @@ jobs:
           baseURL: "https://www.airalo.com/"
         run: |
           mvn clean test \
-            -DdefaultElementIdentificationTimeout=0 \
-            -DlazyLoadingTimeout=0 \
+            -DdefaultElementIdentificationTimeout=1 \
+            -DlazyLoadingTimeout=1 \
             -DwaitForLazyLoading=true \
             -DsetParallelMode=DYNAMIC \
             -DclickUsingJavascriptWhenWebDriverClickFails=true \
