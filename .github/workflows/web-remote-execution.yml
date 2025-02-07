@@ -68,9 +68,9 @@ jobs:
             -DexecutionAddress=localhost:4444 \
             -DtargetOperatingSystem=LINUX \
             -DtargetBrowserName=chrome \
-            -DheadlessExecution=false \
+            -DheadlessExecution=true \
             -DgenerateAllureReportArchive=true \
-            -Dtest=webtestpackage.AiraloWEBTestClass
+            
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
